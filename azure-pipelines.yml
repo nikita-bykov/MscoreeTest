@@ -15,6 +15,8 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
+- powershell: '[Environment]::SetEnvironmentVariable(''NETFXSDKDir '', ''C:\Program Files (x86)\Windows Kits\NETFXSDK'', [EnvironmentVariableTarget]::Machine)'
+
 - task: NuGetToolInstaller@1
 
 - task: NuGetCommand@2
