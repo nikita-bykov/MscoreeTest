@@ -17,8 +17,24 @@ variables:
 steps:
 
 - powershell: |
-   Write-Host "##vso[task.setvariable variable=NETFXSDKDir;]C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8"
-   Write-Host "##vso[task.setvariable variable=NETFXKitsDir;]C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8"
+   $vsProgramData = Get-Item -Path "C:\ProgramData\Microsoft\VisualStudio\Packages\_Instances"
+   $instanceFolders = Get-ChildItem -Path $vsProgramData.FullName
+   $catalogContent = Get-Content -Path ($instanceFolders.FullName + '\catalog.json')
+   $catalog = $catalogContent | ConvertFrom-Json
+   $version = $catalog.info.id
+   Write-Host "Visual Studio version ${version} installed"
+  displayName: 'Check version of Visual Studio'
+- powershell: |
+   Start-Process -Wait -FilePath  "C:\Program Files (x86)\Microsoft Visual Studio\Installer\vs_installer.exe" -ArgumentList "update --passive --norestart --installpath ""C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise"""
+  displayName: 'Update Visual Studio'
+- powershell: |
+   $vsProgramData = Get-Item -Path "C:\ProgramData\Microsoft\VisualStudio\Packages\_Instances"
+   $instanceFolders = Get-ChildItem -Path $vsProgramData.FullName
+   $catalogContent = Get-Content -Path ($instanceFolders.FullName + '\catalog.json')
+   $catalog = $catalogContent | ConvertFrom-Json
+   $version = $catalog.info.id
+   Write-Host "Visual Studio version ${version} installed"
+  displayName: 'Check version of Visual Studio'
 
 - task: NuGetToolInstaller@1
 
