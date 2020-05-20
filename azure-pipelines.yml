@@ -28,6 +28,8 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
+- powershell: 'Get-ChildItem Env:'
+
 #- task: VSTest@2
 #  inputs:
 #    platform: '$(buildPlatform)'
