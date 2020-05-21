@@ -71,7 +71,7 @@ steps:
                    '--add Microsoft.VisualStudio.Component.Windows10SDK.17763 ' + `
                    '--add Microsoft.VisualStudio.Component.VC.Runtimes.x86.x64.Spectre '+ `
                    '--add Microsoft.VisualStudio.Component.VC.Runtimes.ARM.Spectre ' + `
-                   '--add Microsoft.VisualStudio.Component.VC.Runtimes.ARM64.Spectre ' + `
+                   '--add Microsoft.VisualStudio.Component.VC.Runtimes.ARM64.Spectre '
    
    Write-Host "Downloading Bootstrapper ..."
    $BootstrapperName = [IO.Path]::GetFileName($BootstrapperUrl)
@@ -117,8 +117,6 @@ steps:
     solution: '$(solution)'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
-
-- powershell: 'Get-ChildItem Env:'
 
 #- task: VSTest@2
 #  inputs:
