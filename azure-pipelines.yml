@@ -15,8 +15,6 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-
-steps:
 - powershell: |
    $BootstrapperUrl = "https://aka.ms/vs/16/pre/vs_Enterprise.exe"
    
