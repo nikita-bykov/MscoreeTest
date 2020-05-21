@@ -36,6 +36,7 @@ steps:
                 '--add Microsoft.VisualStudio.Component.Azure.Storage.AzCopy ' + `
                 '--add Microsoft.VisualStudio.Component.PowerShell.Tools ' + `
                 '--add Microsoft.VisualStudio.Component.VC.140 ' + `
+                '--add Microsoft.VisualStudio.Component.VC.v141.x86.x64 ' + `
                 '--add Component.Dotfuscator ' + `
                 '--add Microsoft.VisualStudio.Component.VC.ATL ' + `
                 '--add Microsoft.VisualStudio.Component.VC.ATL.ARM ' + `
